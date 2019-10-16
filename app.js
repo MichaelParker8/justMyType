@@ -7,21 +7,6 @@ let sentences = [
     'oat itain oat tain nate eate tea anne inant nean',
     'itant eate anot eat nato inate eat anot tain eat',
     'nee ene ate ite tent tiet ent ine ene ete ene ate',
-    'ten ate neite ate nee enet ite ate inet ent eate',
-    'Too ato too nOt enot one totA not anot tOO aNot',
-    'oat itain oat tain nate eate tea anne inant nean',
-    'itant eate anot eat nato inate eat anot tain eat',
-    'nee ene ate ite tent tiet ent ine ene ete ene ate',
-    'ten ate neite ate nee enet ite ate inet ent eate',
-    'Too ato too nOt enot one totA not anot tOO aNot',
-    'oat itain oat tain nate eate tea anne inant nean',
-    'itant eate anot eat nato inate eat anot tain eat',
-    'nee ene ate ite tent tiet ent ine ene ete ene ate',
-    'ten ate neite ate nee enet ite ate inet ent eate',
-    'Too ato too nOt enot one totA not anot tOO aNot',
-    'oat itain oat tain nate eate tea anne inant nean',
-    'itant eate anot eat nato inate eat anot tain eat',
-    'nee ene ate ite tent tiet ent ine ene ete ene ate'
 ];
 let $sentenceDiv = $('#sentence')
 let whatSentence = 0
@@ -78,8 +63,9 @@ $('body').bind('keydown', function (e) {
                 position = 0
                 $sentenceDiv[0].innerText = sentences[whatSentence]
                 let totalTimeSpent = timeSpent/60
-                let wordPerMinute = 216 / totalTimeSpent// - (2 * incorrectMark)
-                $('#feedback')[0].innerText = `you typed at ${wordPerMinute} words per minute, would you like to play again?`
+                let wordPerMinute = 54 / totalTimeSpent// - (2 * incorrectMark)
+                let adjustedWPM = wordPerMinute - (2*incorrectMark)
+                $('#feedback')[0].innerText = `you typed at ${wordPerMinute} words per minute, with ${incorrectMark} mistyped characters giving you a score of: ${adjustedWPM} adjusted words per minute. Would you like to play again?`
                 window.clearInterval()
                 $reloadPageButton[0].style.display = 'initial'
             }
